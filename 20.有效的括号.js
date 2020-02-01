@@ -5,10 +5,7 @@
  */
 
 // @lc code=start
-/**
- * @param {string} s
- * @return {boolean}
- */
+
 
 const pairObj = {
   '(': ')',
@@ -26,6 +23,11 @@ var deleteStr = function (str) {
   }
   return str
 }
+
+/**
+ * @param {string} str
+ * @return {boolean}
+ */
 var isValid = function (str) {
   return !deleteStr(str)
 }

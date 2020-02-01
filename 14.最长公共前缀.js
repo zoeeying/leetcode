@@ -5,10 +5,6 @@
  */
 
 // @lc code=start
-/**
- * @param {string[]} strs
- * @return {string}
- */
 var returnSet = function (strs, n) {
   let set = new Set()
   for (let i = 0;i < strs.length;i++) {
@@ -16,6 +12,11 @@ var returnSet = function (strs, n) {
   }
   return set
 }
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
 var longestCommonPrefix = function (strs) {
   if (strs.length) {
     let result = ''
