@@ -10,21 +10,20 @@
  * @return {number}
  */
 var firstUniqChar = function (s) {
-  if (s) {
-    let result
-    for (let i = 0;i < s.length;i++) {
-      if (s.split(s[i]).length - 1 === 1) {
-        result = i
-        break
-      }
-    }
-    if (`${result}` === 'undefined') {
-      return -1
-    }
-    return result
-  } else {
+  let str = s
+  if (!str) {
     return -1
   }
+  for (let i = str.length - 1;i >= 0;i--) {
+    if (str.split(str[i]).length > 2) {
+      // 删除字符串中所有的str[i]
+      str = str.split(str[i]).join('')
+    }
+  }
+  if (!str[0]) {
+    return -1
+  }
+  return s.indexOf(str[0])
 }
 // @lc code=end
 
