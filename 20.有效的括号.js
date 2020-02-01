@@ -15,6 +15,10 @@ const pairObj = {
   '}': '{',
   ']': '[',
 }
+/**
+ * @param {string} str
+ * @return {string}
+ */
 var deleteStr = function (str) {
   for (let i = str.length - 1;i >= 0;i--) {
     if (pairObj[str[i]] === str[i - 1]) {

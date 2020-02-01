@@ -6,6 +6,10 @@
 
 // @lc code=start
 
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
 // 返回末尾9组成的数组/空数组
 var ninesArr = function (digits) {
   let arr = []
@@ -18,6 +22,10 @@ var ninesArr = function (digits) {
   return arr
 }
 
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
 // 数组中最后一个元素加1，返回新数组
 var lastPlusOne = function (arr) {
   return arr.map((item, index) => {

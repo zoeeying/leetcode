@@ -5,6 +5,12 @@
  */
 
 // @lc code=start
+
+/**
+ * @param {string[]} strs
+ * @param {number} n
+ * @return {set}
+ */
 var returnSet = function (strs, n) {
   let set = new Set()
   for (let i = 0;i < strs.length;i++) {
