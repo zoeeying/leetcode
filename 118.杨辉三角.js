@@ -12,5 +12,6 @@
 var generate = function (numRows) {
 
 }
+
 // @lc code=end
 
