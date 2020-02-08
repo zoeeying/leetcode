@@ -11,8 +11,10 @@
  * @return {string}
  */
 var addBinary = function (a, b) {
-  return (parseInt(a, 2) + parseInt(b, 2)).toString(2)
+  const n = Math.max(a.length, b.length)
+  let result = ''
 }
-console.log(addBinary("11", "1"))
+// console.log(addBinary("11", "1"))
+addBinary("11", "1")
 // @lc code=end
 
