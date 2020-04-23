@@ -12,7 +12,7 @@
 var isPalindrome = function (x) {
   let str = `${x}`
   let middle = (str.length / 2) ^ 0
-  for (let i = 0;i < middle;i++) {
+  for (let i = 0; i < middle; i++) {
     if (str[i] !== str[str.length - 1 - i]) {
       return false
     }
@@ -20,4 +20,3 @@ var isPalindrome = function (x) {
   return true
 }
 // @lc code=end
-

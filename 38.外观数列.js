@@ -29,7 +29,6 @@ var createRepeatArr = function (str) {
   return arr
 }
 
-
 // 给定前一个字符串，得到后面的字符串
 var createStr = function (str) {
   let result = ''
@@ -52,6 +51,4 @@ var countAndSay = function (n) {
   return arr[n - 1]
 }
 
-
 // @lc code=end
-

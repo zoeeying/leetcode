@@ -6,25 +6,35 @@
 
 // @lc code=start
 
-// 超时
-
-// ele在arr中排行第几？
-var rank = function (arr, ele) {
+/* 
+  // 超时
   let arr2 = [...new Set(arr)]
   arr2.sort((a, b) => a - b)
-  return arr2.indexOf(ele) + 1
-}
+  result.push(arr2.indexOf(arr[i]) + 1)
+*/
 
 /**
  * @param {number[]} arr
  * @return {number[]}
  */
 var arrayRankTransform = function (arr) {
-  let result = []
-  for (let i = 0; i < arr.length; i++) {
-    result.push(rank(arr, arr[i]))
+  // 考虑用Map
+  const len = arr.length
+  const map = new Map()
+  let index = 1
+  const arr2 = [...arr].sort((a, b) => a - b)
+  for (let i = 0; i < len; i++) {
+    if (!map.has(arr2[i])) {
+      map.set(arr2[i], index++)
+    }
+  }
+  const result = []
+  for (let i = 0; i < len; i++) {
+    if (map.has(arr[i])) {
+      result.push(map.get(arr[i]))
+    }
   }
   return result
 }
-// @lc code=end
 
+// @lc code=end

@@ -6,34 +6,24 @@
 
 // @lc code=start
 
-
-const pairObj = {
-  '(': ')',
-  '{': '}',
-  '[': ']',
-  ')': '(',
-  '}': '{',
-  ']': '[',
-}
-/**
- * @param {string} str
- * @return {string}
- */
-var deleteStr = function (str) {
-  for (let i = str.length - 1;i >= 0;i--) {
-    if (pairObj[str[i]] === str[i - 1]) {
-      str = str.substring(0, i - 1) + str.substring(i + 1, str.length)
-    }
-  }
-  return str
-}
-
 /**
  * @param {string} str
  * @return {boolean}
  */
 var isValid = function (str) {
-  return !deleteStr(str)
+  const pairObj = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+    ')': '(',
+    '}': '{',
+    ']': '[',
+  }
+  for (let i = str.length - 1; i >= 0; i--) {
+    if (pairObj[str[i]] === str[i - 1]) {
+      str = str.slice(0, i - 1) + str.slice(i + 1, str.length)
+    }
+  }
+  return !str
 }
 // @lc code=end
-

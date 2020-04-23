@@ -8,26 +8,20 @@
 
 /**
  * @param {string[]} strs
- * @param {number} n
- * @return {set}
- */
-var returnSet = function (strs, n) {
-  let set = new Set()
-  for (let i = 0;i < strs.length;i++) {
-    set.add(strs[i][n])
-  }
-  return set
-}
-
-/**
- * @param {string[]} strs
  * @return {string}
  */
 var longestCommonPrefix = function (strs) {
+  var returnSet = function (strs, n) {
+    let set = new Set()
+    for (let i = 0; i < strs.length; i++) {
+      set.add(strs[i][n])
+    }
+    return set
+  }
   if (strs.length) {
     let result = ''
-    let minLen = Math.min(...strs.map(item => item.length))
-    for (let i = 0;i < minLen;i++) {
+    let minLen = Math.min(...strs.map((item) => item.length))
+    for (let i = 0; i < minLen; i++) {
       if (returnSet(strs, i).size !== 1) {
         return result.length ? result : ''
       }
@@ -38,4 +32,3 @@ var longestCommonPrefix = function (strs) {
   return ''
 }
 // @lc code=end
-
