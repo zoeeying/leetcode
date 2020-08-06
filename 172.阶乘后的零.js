@@ -10,16 +10,40 @@
  * @return {number}
  */
 var trailingZeroes = function (n) {
-  // if (n < 5) {
-  //   return 0
-  // }
-  // let num = 0
-  // for (let i = 5;i <= n;i++) {
-  //   if (i % 5 === 0) {
-  //     num += 1
+  // let total = 1
+  // let result = 0
+  // for (let i = 1; i <= n; i++) {
+  //   total *= i
+  //   if (total % 10 === 0) {
+  //     result += 1
+  //     total = total / 10
   //   }
   // }
-  // return ((n / 25) >> 0) + num
+  // return result
+
+  // 别人的题解1
+  // var count = 0
+  // while (n >= 5) {
+  //   count += (n / 5) | 0 // n除以5后去掉小数点
+  //   n /= 5
+  // }
+  // return count
+
+  // 别人的题解2
+  // if (n < 5) {
+  //   return 0
+  // } else {
+  //   let k = Math.floor(n / 5)
+  //   return k + trailingZeroes(k)
+  // }
+
+  // 别人的题解3
+  let res = 0
+  while (n >= 5) {
+    let k = Math.floor(n / 5)
+    res += k
+    n = k
+  }
+  return res
 }
 // @lc code=end
-
