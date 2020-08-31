@@ -1,20 +1,20 @@
 /*
- * @lc app=leetcode.cn id=118 lang=javascript
+ * @lc app=leetcode.cn id=119 lang=javascript
  *
- * [118] 杨辉三角
+ * [119] 杨辉三角 II
  */
 
 // @lc code=start
 /**
- * @param {number} numRows
- * @return {number[][]}
+ * @param {number} rowIndex
+ * @return {number[]}
  */
-var generate = function (numRows) {
-  if (numRows === 0) {
-    return []
+var getRow = function (rowIndex) {
+  if (rowIndex === 0) {
+    return [1]
   }
   let result = [[1]]
-  for (let i = 1; i < numRows; i++) {
+  for (let i = 1; i <= rowIndex; i++) {
     result[i] = [1]
     for (let j = 1; j < result[i - 1].length; j++) {
       result[i].push(result[i - 1][j] + result[i - 1][j - 1])
@@ -24,7 +24,6 @@ var generate = function (numRows) {
     }
     result[i].push(1)
   }
-  return result
+  return result[rowIndex]
 }
-
 // @lc code=end
