@@ -16,8 +16,15 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
-
-};
+var deleteDuplicates = function (head) {
+  let result = new ListNode()
+  while (head) {
+    if (head.val === head.next.val) {
+      head = head.next
+    }
+    result.val = head.val
+  }
+  console.log(result)
+  return result
+}
 // @lc code=end
-
