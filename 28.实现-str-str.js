@@ -11,18 +11,21 @@
  * @return {number}
  */
 var strStr = function (haystack, needle) {
-  if (!haystack && needle) {
-    return -1
-  }
-  if (!needle) {
-    return 0
-  }
-  let arr = haystack.split(needle)
-  let num = arr.length - 1
-  if (num > 0) {
-    return arr[0].length
-  }
-  return -1
+  // 方法1
+  // if (!haystack && needle) {
+  //   return -1
+  // }
+  // if (!needle) {
+  //   return 0
+  // }
+  // let arr = haystack.split(needle)
+  // let num = arr.length - 1
+  // if (num > 0) {
+  //   return arr[0].length
+  // }
+  // return -1
+
+  // 方法2
+  return haystack.indexOf(needle)
 }
 // @lc code=end
-

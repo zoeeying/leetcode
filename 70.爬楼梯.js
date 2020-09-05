@@ -5,19 +5,26 @@
  */
 
 // @lc code=start
+
 /**
  * @param {number} n
  * @return {number}
  */
 var climbStairs = function (n) {
-  let result = 1
-  for (let i = 1; i < n / 2; i++) {
-    result += n - 2 * i + i
+  const factorial = (num) => {
+    if (num <= 1) {
+      return 1
+    } else {
+      return num * factorial(num - 1)
+    }
+  }
+  let result = 0
+  for (let i = 0; i < n / 2; i++) {
+    result += factorial(n - i) / (factorial(i) * factorial(n - 2 * i))
   }
   if (n % 2 === 0) {
     result += 1
   }
-  console.log(result)
   return result
 }
 climbStairs(6)
