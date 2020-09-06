@@ -10,8 +10,8 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minSubArrayLen = function(s, nums) {
-
-};
+var minSubArrayLen = function (s, nums) {
+  let l = 0
+  let r = 0
+}
 // @lc code=end
-
