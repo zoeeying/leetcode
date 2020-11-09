@@ -12,7 +12,7 @@
 var subsets = function (nums) {
   // 方法一：枚举法
   // 比如nums中有三个元素，那么可以用长度为3的二进制字符串
-  // 来表示对应位置的nums中的元素是否在子集中，0表示不在，1表示存在
+  // 来表示对应位置的nums中的元素否在子集中，0表示不在，1表示存在
   // const result = []
   // for (let i = 0, len = nums.length; i <= 2 ** len - 1; i++) {
   //   const binary = i.toString(2).padStart(len, '0')
@@ -56,7 +56,6 @@ var subsets = function (nums) {
   // }
   // dfs(0, [])
   // return res
-
   // --------------------------------------------------------
   // 方法三：回溯的第一种解法
   const res = []
