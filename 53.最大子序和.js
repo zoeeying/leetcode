@@ -9,16 +9,50 @@
  * @param {number[]} nums
  * @return {number}
  */
-// 借鉴了别人的想法
 var maxSubArray = function (nums) {
-  let res = nums[0]
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[i - 1] > 0) {
-      nums[i] += nums[i - 1]
+  // 借鉴了别人的想法
+  // let res = nums[0]
+  // for (let i = 1; i < nums.length; i++) {
+  //   if (nums[i - 1] > 0) {
+  //     nums[i] += nums[i - 1]
+  //   }
+  //   res = Math.max(res, nums[i])
+  // }
+  // return res
+  // ----------------------------------------------
+  // 试试双指针
+  let result = -Infinity
+  for (let i = 0; i < nums.length; i++) {
+    let count = 0
+    for (let j = i; j < nums.length; j++) {
+      count += nums[j]
+      result = Math.max(count, result)
     }
-    res = Math.max(res, nums[i])
   }
-  return res
+  return result
+  // --------------------------------------------------
+  // 贪心算法
+  // let result = -Infinity
+  // let count = 0
+  // for (let i = 0; i < nums.length; i++) {
+  //   count += nums[i]
+  //   result = Math.max(result, count)
+  //   if (count <= 0) {
+  //     count = 0
+  //   }
+  // }
+  // return result
+  // ---------------------------------------
+  // 动态规划
+  // let len = nums.length
+  // let dp = nums[0]
+  // let result = dp
+  // for (let i = 1; i < len; i++) {
+  //   dp = Math.max(dp + nums[i], nums[i])
+  //   result = Math.max(result, dp)
+  // }
+  // return result
 }
+console.log(maxSubArray([1]))
 
 // @lc code=end
