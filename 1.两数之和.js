@@ -53,7 +53,6 @@ var twoSum = function (nums, target) {
     }
     result[target - nums[i]] = i
   }
-  return result
 }
 console.log(twoSum([2, 7, 11, 15], 9))
 // @lc code=end

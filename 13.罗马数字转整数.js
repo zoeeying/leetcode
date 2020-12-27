@@ -30,20 +30,7 @@ let hash2 = {
  */
 var romanToInt = function (s) {
   let result = 0
-  // for (let i = s.length - 1; i >= 0; i--) {
-  //   let twoLetterNumber = hash2[s.slice(i - 1, i + 1)]
-  //   if (twoLetterNumber) {
-  //     result += twoLetterNumber
-  //     s = s.slice(0, s.length - 2)
-  //   }
-  //   let oneLetterNumber = hash1[s[i]]
-  //   if (oneLetterNumber) {
-  //     result += oneLetterNumber
-  //     s = s.slice(0, s.length - 1)
-  //   }
-  // }
-  let i = 0
-  for (; i < s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     let twoLetterNumber = hash2[s.slice(i, i + 2)]
     if (twoLetterNumber) {
       result += twoLetterNumber

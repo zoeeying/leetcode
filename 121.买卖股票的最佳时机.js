@@ -10,12 +10,16 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-  let result = 0
-  for (let r = 0; r < prices.length; r++) {
-    for (let l = 0; l < r; l++) {
-      result = Math.max(prices[r] - prices[l], result)
-    }
-  }
-  return result
+  // 方法一：双指针
+  // let result = 0
+  // for (let r = 0; r < prices.length; r++) {
+  //   for (let l = 0; l < r; l++) {
+  //     result = Math.max(prices[r] - prices[l], result)
+  //   }
+  // }
+  // return result
+  // ------------------------------------------
+  // 方法二：动态规划
+  
 }
 // @lc code=end
