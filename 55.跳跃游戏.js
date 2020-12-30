@@ -10,6 +10,9 @@
  * @return {boolean}
  */
 var canJump = function (nums) {
+  // 贪心算法：遍历数组，每次都计算当前位置能跳到的最远位置
+  // 如果当前位置超过了最远位置，那么肯定跳不到最后一个位置，直接返回false
+  // 否则遍历结束，返回true即可
   // 方法1：直观想法
   // let maxDistance = 0
   // let len = nums.length

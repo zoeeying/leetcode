@@ -10,7 +10,7 @@
  * @return {number}
  */
 var maxProfit = function (prices) {
-  // 方法一：双指针
+  // 方法1：双指针
   // let result = 0
   // for (let r = 0; r < prices.length; r++) {
   //   for (let l = 0; l < r; l++) {
@@ -19,7 +19,13 @@ var maxProfit = function (prices) {
   // }
   // return result
   // ------------------------------------------
-  // 方法二：动态规划
-  
+  // 方法2：贪心、动态规划
+  let minPrice = Infinity,
+    maxProfit = 0
+  for (let i = 0; i < prices.length; i++) {
+    minPrice = Math.min(minPrice, prices[i])
+    maxProfit = Math.max(prices[i] - minPrice, maxProfit)
+  }
+  return maxProfit
 }
 // @lc code=end
