@@ -11,19 +11,54 @@
  * @return {boolean}
  */
 var isValid = function (str) {
-  const pairObj = {
+  // 用栈的写法
+  // const stack = []
+  // const hash = {
+  //   '(': ')',
+  //   '{': '}',
+  //   '[': ']',
+  // }
+  // for (let i = 0; i < str.length; i++) {
+  //   const char = str[i]
+  //   stack.push(char)
+  //   while (
+  //     stack.length &&
+  //     hash[stack[stack.length - 2]] === stack[stack.length - 1]
+  //   ) {
+  //     stack.pop()
+  //     stack.pop()
+  //   }
+  // }
+  // return !stack.length
+  // ---------------------------------------
+  // 别人的题解，用栈来保存左括号
+  const stack = []
+  const hash = {
     '(': ')',
     '{': '}',
     '[': ']',
-    ')': '(',
-    '}': '{',
-    ']': '[',
   }
-  for (let i = str.length - 1; i >= 0; i--) {
-    if (pairObj[str[i]] === str[i - 1]) {
-      str = str.slice(0, i - 1) + str.slice(i + 1, str.length)
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i]
+    if (hash[char]) {
+      // 把左括号推到栈中
+      stack.push(char)
+    } else {
+      // 是右括号
+      if (!stack.length) {
+        // 这个判断只是优化，可以减少runtime
+        return false
+      }
+      const top = stack[stack.length - 1]
+      if (hash[top] === char) {
+        stack.pop()
+      } else {
+        return false
+      }
     }
   }
-  return !str
+  // stack中还有没有匹配到的左括号
+  return !stack.length
 }
+
 // @lc code=end
