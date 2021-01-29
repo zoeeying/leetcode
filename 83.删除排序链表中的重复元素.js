@@ -17,14 +17,15 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
-  let result = new ListNode()
-  while (head) {
-    if (head.val === head.next.val) {
-      head = head.next
+  // 这题不会写，看别人的解法的
+  let cur = head
+  while (cur && cur.next) {
+    if (cur.val === cur.next.val) {
+      cur.next = cur.next.next
+    } else {
+      cur = cur.next
     }
-    result.val = head.val
   }
-  console.log(result)
-  return result
+  return head
 }
 // @lc code=end
