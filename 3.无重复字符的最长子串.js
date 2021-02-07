@@ -24,16 +24,16 @@ var lengthOfLongestSubstring = function (s) {
   // return result
   // -------------------------------------
   // 方法二：HashMap
-  // let map = new Map()
-  // let result = 0
-  // for (let i = 0, j = 0; j < s.length; j++) {
-  //   if (map.has(s[j])) {
-  //     i = Math.max(map.get(s[j]) + 1, i)
-  //   }
-  //   result = Math.max(result, j - i + 1)
-  //   map.set(s[j], j)
-  // }
-  // return result
-  // ---------------------------------------
+  let hash = {}
+  let result = 0
+  for (let l = 0, r = 0; r < s.length; r++) {
+    if (hash[s[r]] !== undefined) {
+      l = Math.max(hash[s[r]] + 1, l) // l不能比之前的l小
+    }
+    result = Math.max(result, r - l + 1)
+    hash[s[r]] = r
+  }
+  return result
 }
+lengthOfLongestSubstring('abba')
 // @lc code=end

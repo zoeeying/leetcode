@@ -17,7 +17,7 @@ var floodFill = function (image, sr, sc, newColor) {
   if (rows === 0) {
     return
   }
-  cols = image[0].length
+  const cols = image[0].length
   const point = image[sr][sc]
   const dfs = (i, j) => {
     if (

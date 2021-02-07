@@ -11,22 +11,9 @@
  * @return {number}
  */
 var characterReplacement = function (s, k) {
-  let l = 0,
-    r = 0
-  const hash = {}
-  let result = 0
-  let maxChar = 0 // 重复最多的字符的长度
-  for (; r < s.length; r++) {
-    hash[s[r]] = (hash[s[r]] || 0) + 1
-    maxChar = Math.max(maxChar, hash[s[r]])
-    if (r - l + 1 - maxChar >= k) {
-      const start = s[l++]
-      hash[start] -= 1
-    }
-    result = Math.max(result, r - l + 1)
-  }
-  console.log(result)
-  return result
+  // 滑动窗口题
+  let l = 0
+  let r = 0
 }
-characterReplacement('AAAA', 0)
+characterReplacement('ABABCCCD', 0)
 // @lc code=end
