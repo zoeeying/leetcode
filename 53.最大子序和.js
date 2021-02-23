@@ -21,7 +21,7 @@ var maxSubArray = function (nums) {
   // return res
   // ----------------------------------------------
   // 试试双指针
-  let result = -Infinity
+  let result = Number.MIN_SAFE_INTEGER
   for (let i = 0; i < nums.length; i++) {
     let count = 0
     for (let j = i; j < nums.length; j++) {
@@ -32,7 +32,7 @@ var maxSubArray = function (nums) {
   return result
   // --------------------------------------------------
   // 贪心算法
-  // let result = -Infinity
+  // let result = Number.MIN_SAFE_INTEGER
   // let count = 0
   // for (let i = 0; i < nums.length; i++) {
   //   count += nums[i]

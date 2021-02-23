@@ -30,6 +30,6 @@ var isValidBST = function (root) {
       helper(node.left, lower, node.val) && helper(node.right, node.val, upper)
     )
   }
-  return helper(root, -Infinity, Infinity)
+  return helper(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
 }
 // @lc code=end

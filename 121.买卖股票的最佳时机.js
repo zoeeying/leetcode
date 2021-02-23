@@ -20,7 +20,7 @@ var maxProfit = function (prices) {
   // return result
   // ------------------------------------------
   // 方法2：贪心、动态规划
-  let minPrice = Infinity,
+  let minPrice = Number.MAX_SAFE_INTEGER,
     maxProfit = 0
   for (let i = 0; i < prices.length; i++) {
     minPrice = Math.min(minPrice, prices[i])

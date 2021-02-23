@@ -11,7 +11,7 @@
  * @return {number}
  */
 var threeSumClosest = function (nums, target) {
-  let temp = Infinity
+  let temp = Number.MAX_SAFE_INTEGER
   for (let i = 0; i < nums.length; i++) {
     for (let j = 0; j < nums.length && j !== i; j++) {
       for (let k = 0; k < nums.length && k !== i && k !== j; k++) {

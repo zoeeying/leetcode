@@ -17,6 +17,8 @@
  * @return {number}
  */
 var maxDepth = function (root) {
+  // 方法1：深度优先搜索
+  // 最大深度也就是总共有多少层
   if (!root) {
     return 0
   } else {
@@ -24,5 +26,28 @@ var maxDepth = function (root) {
     const right = maxDepth(root.right)
     return Math.max(left, right) + 1
   }
+
+  // *********************************************************
+  // 方法2：广度优先搜索
+  // 最大深度也就是总共有多少层
+  // let ans = 0
+  // if (!root) {
+  //   return ans
+  // }
+  // const q = [root]
+  // while (q.length) {
+  //   const levelSize = q.length // 每层的节点数
+  //   for (let i = 1; i <= levelSize; i++) {
+  //     const node = q.shift()
+  //     if (node.left) {
+  //       q.push(node.left)
+  //     }
+  //     if (node.right) {
+  //       q.push(node.right)
+  //     }
+  //   }
+  //   ans++
+  // }
+  // return ans
 }
 // @lc code=end
