@@ -15,19 +15,19 @@ var maxAreaOfIsland = function (grid) {
     return
   }
   const cols = grid[0].length
-  let result = 0
   const dfs = (i, j) => {
     if (i < 0 || j < 0 || i === rows || j === cols || grid[i][j] === 0) {
       return 0
     }
-    let temp = 1
     grid[i][j] = 0
+    let temp = 1
     temp += dfs(i - 1, j)
     temp += dfs(i + 1, j)
     temp += dfs(i, j + 1)
     temp += dfs(i, j - 1)
     return temp
   }
+  let result = 0
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if (grid[i][j] === 1) {
