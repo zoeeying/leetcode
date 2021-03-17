@@ -153,6 +153,7 @@ const threeSum = function (nums) {
       } else if (sum > 0) {
         r--
       } else {
+        // 如果sum===0，那么两个指针都要动
         ans.push([nums[i], nums[l], nums[r]])
         // 去除重复的元素
         while (l < r && nums[l] === nums[l + 1]) {
