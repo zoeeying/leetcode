@@ -19,12 +19,13 @@
 var maxDepth = function (root) {
   // 方法1：深度优先搜索
   // 最大深度也就是总共有多少层
+  // 后序遍历
   if (!root) {
     return 0
   } else {
-    const left = maxDepth(root.left)
-    const right = maxDepth(root.right)
-    return Math.max(left, right) + 1
+    const left = maxDepth(root.left) // 左子树的最大深度
+    const right = maxDepth(root.right) // 右子树的最大深度
+    return Math.max(left, right) + 1 // 根节点的深度是1
   }
 
   // *********************************************************

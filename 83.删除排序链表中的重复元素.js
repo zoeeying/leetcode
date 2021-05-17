@@ -17,15 +17,31 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
-  // 这题不会写，看别人的解法的
-  let cur = head
-  while (cur && cur.next) {
-    if (cur.val === cur.next.val) {
-      cur.next = cur.next.next
-    } else {
-      cur = cur.next
-    }
+  // 方法1：这题不会写，看别人的解法的
+  // let cur = head
+  // while (cur && cur.next) {
+  //   if (cur.val === cur.next.val) {
+  //     cur.next = cur.next.next
+  //   } else {
+  //     cur = cur.next
+  //   }
+  // }
+  // return head
+  // *******************************************
+  // 方法2：参考第26题，使用快慢指针
+  if (head === null) {
+    return null
   }
+  const slow = head,
+    fast = head.next
+  while (fast !== null) {
+    if (slow.val !== fast.val) {
+      slow.next = fast // nums[slow] = nums[fast]
+      slow = slow.next // slow++
+    }
+    fast = fast.next // fast++
+  }
+  slow.next = null // 断开与后面重复元素的连接
   return head
 }
 // @lc code=end
