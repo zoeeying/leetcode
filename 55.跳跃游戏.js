@@ -23,15 +23,28 @@ var canJump = function (nums) {
   //   maxDistance = Math.max(maxDistance, nums[i] + i)
   // }
   // return true
-  // ----------------------------------------
-  // 方法2：优化写法
-  let maxDistance = 0,
-    len = nums.length
-  // 只有在maxDistance小于len-1，并且当前位置小于等于maxDistance的时候
-  // 才遍历
-  for (let i = 0; maxDistance < len - 1 && i <= maxDistance; i++) {
+  // ***********************************************************
+  // 方法2：labuladong解法
+  // 先计算maxDistance，且只遍历到nums中倒数第二个元素
+  let maxDistance = 0
+  let len = nums.length
+  for (let i = 0; i < len - 1; i++) {
     maxDistance = Math.max(maxDistance, nums[i] + i)
+    if (i >= maxDistance) {
+      return false
+    }
   }
   return maxDistance >= len - 1
+  // ***********************************************************
+  // 方法3：优化写法
+  // let maxDistance = 0,
+  //   len = nums.length
+  // // 只有在maxDistance小于len-1，并且当前位置小于等于maxDistance的时候
+  // // 才遍历
+  // for (let i = 0; maxDistance < len - 1 && i <= maxDistance; i++) {
+  //   maxDistance = Math.max(maxDistance, nums[i] + i)
+  // }
+  // return maxDistance >= len - 1
 }
+canJump([2, 3, 1, 1, 4])
 // @lc code=end

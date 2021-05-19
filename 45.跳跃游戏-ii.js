@@ -10,14 +10,20 @@
  * @return {number}
  */
 var jump = function (nums) {
-  let maxDistance = 0
+  // labuladong解法
   let len = nums.length
-  for (let i = 0; i < len; i++) {
-    if (i > maxDistance) {
-      return false
-    }
+  let maxDistance = 0 // 索引i到end起跳，最远能到的距离
+  let end = 0 // 站在索引i，最多能跳到索引end
+  let jumps = 0
+  for (let i = 0; i < len - 1; i++) {
     maxDistance = Math.max(maxDistance, nums[i] + i)
+
+    if (end === i) {
+      jumps++
+      end = maxDistance
+    }
   }
-  return true
+  return jumps
 }
+console.log(jump([2, 3, 1, 1, 4]))
 // @lc code=end
