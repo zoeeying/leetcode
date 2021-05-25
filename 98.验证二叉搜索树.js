@@ -17,19 +17,17 @@
  * @return {boolean}
  */
 var isValidBST = function (root) {
-  // 需要注意的是，并不是左节点的值小于当前节点的值，右节点的值大于当前节点的值就可以了
-  // 还需要保证左节点以及所有子节点的值都小于当前节点的值，右节点同理
-  const helper = (node, lower, upper) => {
+  // 二叉搜索树BST：一个二叉树中，任意节点的值要大于等于左子树所有节点的值，且要小于等于右子树的所有节点值
+  // 使用辅助函数，增加函数参数列表，在参数中携带额外信息
+  const recursion = (node, min, max) => {
     if (node === null) {
       return true
     }
-    if (node.val <= lower || node.val >= upper) {
+    if (node.val <= min || node.val >= max) {
       return false
     }
-    return (
-      helper(node.left, lower, node.val) && helper(node.right, node.val, upper)
-    )
+    return recursion(node.left, min, node.val) && recursion(node.right, node.val, max)
   }
-  return helper(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
+  return recursion(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
 }
 // @lc code=end
