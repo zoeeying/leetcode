@@ -20,8 +20,7 @@ var minWindow = function (s, t) {
   let winMap = {} // 滑动窗口中每个字符的个数
   let valid = 0 // 对于滑动窗口中的字符，比如c，如果c的个数与子字符串中c的个数相等，那么valid++
   let start = 0,
-    len = Number.MAX_SAFE_INTEGER // 子路最小子串的起始位置和长度
-  let minLen = Number.MAX_SAFE_INTEGER // 最小子串的长度
+    len = Number.MAX_SAFE_INTEGER // 最小子串的起始位置和长度
   for (; r < s.length; r++) {
     const c = s[r]
     if (tMap[c]) {
@@ -38,8 +37,6 @@ var minWindow = function (s, t) {
         start = l
         len = r - l + 1
       }
-      minLen = Math.min(minLen, r - l + 1)
-
       const d = s[l]
       if (tMap[d]) {
         if (winMap[d] === tMap[d]) {
@@ -52,6 +49,44 @@ var minWindow = function (s, t) {
   }
   // substr用于截取字符串，第一个参数是起始位置，第二个参数表示截取字符串的长度
   return len === Number.MAX_SAFE_INTEGER ? '' : s.substr(start, len)
+  // ***********************************************************************
+  // 自己写的，效率不高
+  // if (s.length < t.length) {
+  //   return ''
+  // }
+  // let l = 0
+  // let r = 0
+  // const len = s.length
+  // const window = {} // 用来记录窗口中每个字符的个数
+  // const target = {} // 字符串t中每个字符的个数
+  // let ansLen = Number.MAX_SAFE_INTEGER
+  // let ans = ''
+  // for (let i = 0; i < t.length; i++) {
+  //   target[t[i]] = (target[t[i]] || 0) + 1
+  // }
+  // // window中每个字符的个数满足target
+  // const isCountEqual = () => {
+  //   let equal = true
+  //   for (let key in target) {
+  //     if (window[key] < target[key] || window[key] === undefined) {
+  //       equal = false
+  //       break
+  //     }
+  //   }
+  //   return equal
+  // }
+  // for (; r < len; r++) {
+  //   window[s[r]] = (window[s[r]] || 0) + 1
+  //   while (isCountEqual() && l <= r) {
+  //     if (r - l + 1 < ansLen) {
+  //       ans = s.slice(l, r + 1)
+  //       ansLen = r - l + 1
+  //     }
+  //     window[s[l]]--
+  //     l++
+  //   }
+  // }
+  // return ans
 }
-minWindow('ADOBECODEBANC', 'ABC')
+
 // @lc code=end

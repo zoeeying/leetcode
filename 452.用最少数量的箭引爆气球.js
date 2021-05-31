@@ -10,20 +10,18 @@
  * @return {number}
  */
 var findMinArrowShots = function (points) {
-  // 官方题解
-  if (!points.length) {
+  // 转换成最多有几个区间互不相交，边界相同也不可以
+  const len = points.length
+  if (!len) {
     return 0
   }
-  // 按照第二个元素的大小排序
   points.sort((a, b) => a[1] - b[1])
-  let pos = points[0][1] // 位置越往右越好
-  let ans = 1 // 开始肯定能射中第一个气球
-  for (let ballon of points) {
-    // 如果气球的开始位置已经大于射气球的位置了
-    // 那么把射气球的位置移到该气球的结束位置
-    if (ballon[0] > pos) {
-      pos = ballon[1]
+  let ans = 1 // 第一个区间
+  let end = points[0][1]
+  for (let point of points) {
+    if (point[0] > end) {
       ans++
+      end = point[1]
     }
   }
   return ans

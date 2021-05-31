@@ -58,38 +58,39 @@ var twoSum = function (nums, target) {
   //   }
   // }
   // return []
+  // *************************************************************
   // 题目再变化一下：在nums中找出和为target的所有元素对，且不能重复
-  nums.sort((a, b) => a - b)
-  let l = 0,
-    r = nums.length - 1
-  let ans = []
-  while (l < r) {
-    // 记录左右指针最初对应的元素
-    const left = nums[l]
-    const right = nums[r]
-    const sum = left + right
-    if (sum > target) {
-      // 优化一下，跳过所有重复的元素
-      while (l < r && nums[r] === right) {
-        r--
-      }
-    } else if (sum < target) {
-      while (l < r && nums[l] === left) {
-        l++
-      }
-    } else {
-      ans.push([nums[l], nums[r]])
-      // 如果左右指针只是移动一下，那么对于nums是[1, 1, 1, 2, 2, 3, 3]，肯定会出现重复的结果
-      // 应该让左右指针跳过所有重复的元素
-      while (l < r && nums[l] === left) {
-        l++
-      }
-      while (l < r && nums[r] === right) {
-        r--
-      }
-    }
-  }
-  return ans
+  // nums.sort((a, b) => a - b)
+  // let l = 0,
+  //   r = nums.length - 1
+  // let ans = []
+  // while (l < r) {
+  //   // 记录左右指针最初对应的元素，用于跳过所有重复的元素
+  //   const left = nums[l]
+  //   const right = nums[r]
+  //   const sum = left + right
+  //   if (sum > target) {
+  //     // 优化一下，跳过所有重复的元素
+  //     while (l < r && nums[r] === right) {
+  //       r--
+  //     }
+  //   } else if (sum < target) {
+  //     while (l < r && nums[l] === left) {
+  //       l++
+  //     }
+  //   } else {
+  //     ans.push([nums[l], nums[r]])
+  //     // 如果左右指针只是移动一下，那么对于nums是[1, 1, 1, 2, 2, 3, 3]，肯定会出现重复的结果
+  //     // 应该让左右指针跳过所有重复的元素
+  //     while (l < r && nums[l] === left) {
+  //       l++
+  //     }
+  //     while (l < r && nums[r] === right) {
+  //       r--
+  //     }
+  //   }
+  // }
+  // return ans
 }
 console.log(twoSum([1, 1, 1, 2, 2, 3, 3], 4))
 // @lc code=end
