@@ -11,8 +11,8 @@
  */
 var maxAreaOfIsland = function (grid) {
   const rows = grid.length
-  if (rows === 0) {
-    return
+  if (!rows) {
+    return 0
   }
   const cols = grid[0].length
   const dfs = (i, j) => {
@@ -20,22 +20,22 @@ var maxAreaOfIsland = function (grid) {
       return 0
     }
     grid[i][j] = 0
-    let temp = 1
-    temp += dfs(i - 1, j)
-    temp += dfs(i + 1, j)
-    temp += dfs(i, j + 1)
-    temp += dfs(i, j - 1)
-    return temp
+    let count = 1
+    count += dfs(i, j + 1)
+    count += dfs(i, j - 1)
+    count += dfs(i - 1, j)
+    count += dfs(i + 1, j)
+    return count
   }
-  let result = 0
+  let ans = 0
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if (grid[i][j] === 1) {
-        result = Math.max(result, dfs(i, j))
+        ans = Math.max(ans, dfs(i, j))
       }
     }
   }
-  return result
+  return ans
 }
 
 // @lc code=end
